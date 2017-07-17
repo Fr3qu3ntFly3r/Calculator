@@ -11,15 +11,24 @@ import UIKit
 class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var clearButton: UIButton!
+    @IBOutlet weak var resultsTableView: UITableView!
     
     var isNumberFinished = true
     var isResultNumber = true
     
     var calculator = Calculator()
+    
+    var calculations: [DisplayCalculation] = DisplayCalculation.calculationHistory
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        resultsTableView.delegate = self
+        resultsTableView.dataSource = self
+        
+        resultsTableView.separatorStyle = .none
+        
         
     }
 
@@ -44,7 +53,7 @@ class ViewController: UIViewController {
         } else {
             if var resultText = resultLabel.text {
                 if resultText.characters.count > 1 {
-                    resultText.characters.popLast()
+                    _ = resultText.characters.popLast()
                     resultLabel.text = resultText
                     
                 } else {
@@ -148,13 +157,18 @@ class ViewController: UIViewController {
     
     func passOperator(_ operation: MathOperation) {
         
-        // passing the math operator to the calculator, and getting back the result
-        
         
         if !isNumberFinished || isResultNumber {
-            calculator.getNumber(resultLabel.text != nil ? resultLabel.text! : "0")
+            
+            let number = resultLabel.text != nil ? resultLabel.text! : "0"
+            
+            // pass the number to the calculator
+            calculator.getNumber(number)
+            
             isResultNumber = false
         }
+        
+        // passing in operator to calulation display
         
         let result = calculator.getOperation(operation)
         isNumberFinished = true
@@ -166,7 +180,21 @@ class ViewController: UIViewController {
             }
             isResultNumber = true
             
+            
         }
+        
+        calculations = DisplayCalculation.calculationHistory
+        if !calculations.isEmpty {
+            resultsTableView.separatorStyle = .singleLine
+        }
+        resultsTableView.reloadData()
+    
+        
+        let endY =  -resultsTableView.bounds.height + CGFloat(calculations.count) * 44
+        let endPoint = CGPoint(x: 0, y: endY)
+        
+        
+        resultsTableView.contentOffset = endPoint
         
     }
     
@@ -176,10 +204,10 @@ class ViewController: UIViewController {
         var resultString = ""
         var characters = Array(rawResult.characters)
         while characters[characters.count - 1] == "0" {
-            characters.popLast()
+            _ = characters.popLast()
         }
         if characters[characters.count - 1] == "." {
-            characters.popLast()
+            _ = characters.popLast()
         }
         for character in characters {
             resultString += "\(character)"
@@ -187,6 +215,43 @@ class ViewController: UIViewController {
         
         return resultString
         
+    }
+    
+    
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calculations.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ResultCell", for: indexPath) as! ResultCell
+        
+        cell.resultLabel.isHidden = false
+        cell.calculationLabel.isHidden = false
+        let currentData = calculations[indexPath.row]
+        
+        if let calculation = currentData.calculation {
+            cell.calculationLabel.text = calculation
+        } else {
+            cell.calculationLabel.isHidden = true
+        }
+        
+        if let result = currentData.result {
+            cell.resultLabel.text = result
+        } else {
+            cell.resultLabel.isHidden = true
+        }
+        
+        cell.backgroundColor = UIColor(white: 1, alpha: 0)
+        
+        
+        return cell
     }
     
     

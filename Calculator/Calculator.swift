@@ -8,14 +8,16 @@
 
 import Foundation
 
-enum MathOperation {
-    case Plus
-    case Minus
-    case Multiply
-    case Divide
-    case Equal
-    case Percent
-    case Negate
+enum MathOperation: String {
+    case Plus = " + "
+    case Minus = " - "
+    case Multiply = " x "
+    case Divide = " / "
+    case Equal = ""
+    case Percent = " % "
+    case Negate = " -"
+    
+    // additional operations: 1/x, x2, Sqr(x), parentheses
 }
 
 struct Calculator {
@@ -29,10 +31,20 @@ struct Calculator {
             if firstNumber == nil {
                 firstNumber = number
                 
+                // create new entry in calculation history
+                DisplayCalculation.addCalculation()
+                
+                
+                
             } else {
                 secondNumber = number
                 
+                
+                
             }
+            
+            // pass the next number to calculation history
+            DisplayCalculation.updateCalculation(with: numberString)
         }
     }
     
@@ -43,29 +55,53 @@ struct Calculator {
         if operation != nil {
             if secondNumber != nil {
                 result =  calculate()
-                firstNumber = nil
+                
                 if pressedOperation != .Equal {
                     operation = pressedOperation
+                    
+                    
+                } else {
+                    firstNumber = nil
                 }
+                
+                
                 
             } else {
                 if pressedOperation == .Equal {
                     secondNumber = firstNumber
+                    
+                    // pass the new secondNumber to calculation History
+                    DisplayCalculation.updateCalculation(with: "\(secondNumber!)")
+                    
                     result = calculate()
                     firstNumber = nil
                 } else {
                    operation = pressedOperation
+                    
+                    // remove the last operation, to be able to replace
+                    DisplayCalculation.removeLastOperation()
                 }
             }
             
         } else {
             if pressedOperation != .Equal {
                operation = pressedOperation
+               
+            } else {
+                result = firstNumber
+                firstNumber = nil
             }
             
             
         }
         
+        // update the calculation and result in history
+        DisplayCalculation.updateCalculation(with: pressedOperation.rawValue)
+        
+        if let result = result {
+            DisplayCalculation.updateResult(with: result)
+        }
+        print(DisplayCalculation.calculationHistory)
         return result
     }
     
