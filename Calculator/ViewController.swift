@@ -13,8 +13,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var resultsTableView: UITableView!
     
-    var isNumberFinished = true
-    var isResultNumber = true
+    var isNumberFinished = true {
+        didSet {
+            updateClearButton()
+        }
+    }
+    var isResultNumber = true {
+        didSet {
+            updateClearButton()
+        }
+    }
     
     var calculator = Calculator()
     
@@ -29,7 +37,7 @@ class ViewController: UIViewController {
         
         resultsTableView.separatorStyle = .none
         
-        
+        updateClearButton()
     }
 
     override func didReceiveMemoryWarning() {
@@ -122,6 +130,7 @@ class ViewController: UIViewController {
     //MARK: Numbers
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         buildNumber(with: sender.title(for: .normal)!)
+        
     }
     
         
@@ -190,7 +199,7 @@ class ViewController: UIViewController {
         resultsTableView.reloadData()
     
         
-        let endY =  -resultsTableView.bounds.height + CGFloat(calculations.count) * 44
+        let endY =  -resultsTableView.bounds.height + CGFloat(calculations.count) * 50
         let endPoint = CGPoint(x: 0, y: endY)
         
         
@@ -215,6 +224,14 @@ class ViewController: UIViewController {
         
         return resultString
         
+    }
+    
+    func updateClearButton() {
+        if isNumberFinished {
+            clearButton.setTitle("A/C", for: .normal)
+        } else {
+            clearButton.setTitle("C", for: .normal)
+        }
     }
     
     

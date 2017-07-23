@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6035D3951F0B0F6200AC8AB7"
-               BuildableName = "Calculator.app"
-               BlueprintName = "Calculator"
-               ReferencedContainer = "container:Calculator.xcodeproj">
+               BuildableName = "CalculatorByFr3qFly.app"
+               BlueprintName = "CalculatorByFr3qFly"
+               ReferencedContainer = "container:CalculatorByFr3qFly.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6035D3951F0B0F6200AC8AB7"
-            BuildableName = "Calculator.app"
-            BlueprintName = "Calculator"
-            ReferencedContainer = "container:Calculator.xcodeproj">
+            BuildableName = "CalculatorByFr3qFly.app"
+            BlueprintName = "CalculatorByFr3qFly"
+            ReferencedContainer = "container:CalculatorByFr3qFly.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6035D3951F0B0F6200AC8AB7"
-            BuildableName = "Calculator.app"
-            BlueprintName = "Calculator"
-            ReferencedContainer = "container:Calculator.xcodeproj">
+            BuildableName = "CalculatorByFr3qFly.app"
+            BlueprintName = "CalculatorByFr3qFly"
+            ReferencedContainer = "container:CalculatorByFr3qFly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6035D3951F0B0F6200AC8AB7"
-            BuildableName = "Calculator.app"
-            BlueprintName = "Calculator"
-            ReferencedContainer = "container:Calculator.xcodeproj">
+            BuildableName = "CalculatorByFr3qFly.app"
+            BlueprintName = "CalculatorByFr3qFly"
+            ReferencedContainer = "container:CalculatorByFr3qFly.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

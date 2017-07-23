@@ -101,7 +101,7 @@ struct Calculator {
         if let result = result {
             DisplayCalculation.updateResult(with: result)
         }
-        print(DisplayCalculation.calculationHistory)
+        
         return result
     }
     
