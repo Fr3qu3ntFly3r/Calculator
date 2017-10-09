@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var resultLabel: UILabel!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var resultsTableView: UITableView!
+    @IBOutlet weak var interfaceStackView: UIStackView!
     
     var isNumberFinished = true {
         didSet {
@@ -273,4 +274,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
 
