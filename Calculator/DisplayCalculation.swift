@@ -47,7 +47,7 @@ class DisplayCalculation: CustomStringConvertible {
     static func removeLastOperation() {
         if calculationHistory[calculationHistory.count - 1].calculation != nil {
             for _ in 1 ... 3 {
-               _ = calculationHistory[calculationHistory.count - 1].calculation!.characters.popLast()
+               _ = calculationHistory[calculationHistory.count - 1].calculation!.popLast()
             }
             
         }
@@ -56,7 +56,7 @@ class DisplayCalculation: CustomStringConvertible {
     static func displayResult(_ result: Double) -> String {
         let rawResult = "\(result)"
         var resultString = ""
-        var characters = Array(rawResult.characters)
+        var characters = Array(rawResult)
         while characters[characters.count - 1] == "0" {
             _ = characters.popLast()
         }

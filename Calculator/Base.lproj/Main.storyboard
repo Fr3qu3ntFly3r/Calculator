@@ -111,7 +111,7 @@
                                                             <constraint firstItem="dq9-tP-Jjw" firstAttribute="top" secondItem="Ppo-Ek-8eB" secondAttribute="top" id="zFG-II-KmI"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwS-OF-StE">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES"  translatesAutoresizingMaskIntoConstraints="NO" id="qwS-OF-StE">
                                                         <rect key="frame" x="0.0" y="72.333333333333329" width="708" height="48"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="ikw-5i-ENj"/>

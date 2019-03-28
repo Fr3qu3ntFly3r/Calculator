@@ -61,8 +61,8 @@ class ViewController: UIViewController {
             
         } else {
             if var resultText = resultLabel.text {
-                if resultText.characters.count > 1 {
-                    _ = resultText.characters.popLast()
+                if resultText.count > 1 {
+                    _ = resultText.popLast()
                     resultLabel.text = resultText
                     
                 } else {
@@ -140,7 +140,7 @@ class ViewController: UIViewController {
             buildNumber(with: "0.")
         } else {
             if let numberString = resultLabel.text {
-                guard !numberString.characters.contains(".") else {
+                guard !numberString.contains(".") else {
                     return
                 }
                 buildNumber(with: ".")
@@ -212,7 +212,7 @@ class ViewController: UIViewController {
     func displayResult(_ result: Double) -> String {
         let rawResult = "\(result)"
         var resultString = ""
-        var characters = Array(rawResult.characters)
+        var characters = Array(rawResult)
         while characters[characters.count - 1] == "0" {
             _ = characters.popLast()
         }
