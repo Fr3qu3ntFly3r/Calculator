@@ -4,6 +4,7 @@ on:
   push:
     branches:
     - develop
+    - actions
 
 jobs:
   test:
@@ -21,9 +22,4 @@ jobs:
         env:
           destination: $
           DEVELOPER_DIR: ${{ matrix.xcode }}
-      - name: Archive Failed Tests artifacts
-        if: failure()
-        uses: actions/upload-artifact@v1
-        with:
-          name: FailureDiff
-          path: CalcutaorTests/FailureDiffs
+      
