@@ -27,9 +27,25 @@ platform :ios do
   desc "Push a new beta build to TestFlight"
   lane :beta do
     scheme = ENV['SCHEME']
+    code_signing_identity = ENV['CODE_SIGNING']
 
-    build_app(scheme: scheme)
-    upload_to_testflight
+    sigh
+    build_app(
+      scheme: scheme
+    )
+    changelog = changelog_from_git_commits(
+      pretty: '- (%ae %s)',
+      merge_commit_filtering: 'exclude_merges'
+    )
+    upload_to_testflight(
+      changelog: changelog,
+      beta_app_review_info: {
+        contact_email: contact_email,
+        contact_first_name: 'Balazs',
+        contact_last_name: 'Szamody',
+        contact_phone: '+61478015469',
+      }
+    )
   end
 
   desc "Bump Version"

@@ -17,6 +17,11 @@ jobs:
           lane: 'beta'
         env:
           SCHEME: 'CalculatorByFr3qFly'
+          CODE_SIGNING: ${{ secrets.CODE_SIGNING }}
+          FASTLANE_SESSION: ${{ secrets.FASTLANE_SESSION }}
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+          
       - name: Bump Build Number
         uses: maierj/fastlane-action@v1.4.0
         with:
