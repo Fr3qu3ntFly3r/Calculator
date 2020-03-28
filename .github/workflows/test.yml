@@ -1,4 +1,4 @@
-name: CI
+name: Test
 # triggered on pushes
 on:
   push:
@@ -30,4 +30,3 @@ jobs:
         with:
           name: test_output
           path: ./fastlane/test_output
-      

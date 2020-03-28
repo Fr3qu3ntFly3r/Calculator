@@ -31,4 +31,22 @@ platform :ios do
     build_app(scheme: scheme)
     upload_to_testflight
   end
+
+  desc "Bump Version"
+  lane :bump do
+    project_name = ENV['PROJECT_NAME']
+    xcodeproj = "#{project_name}.xcodeproj"
+    commit_tag = ENV['COMMIT_TAG']
+
+    build_number = increment_build_number(
+      xcodeproj: xcodeproj
+      )
+
+    commit_version_bump(
+      message: "[#{commit_tag}] Version increased to #{version_number}(#{build_number})",
+      xcodeproj: xcodeproj
+      )
+
+    push_to_git_remote(remote_branch: "develop")
+  end
 end
