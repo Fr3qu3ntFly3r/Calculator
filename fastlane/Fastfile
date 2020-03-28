@@ -1,0 +1,52 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+  desc "Test the app"
+  lane :test_app do
+    device = ENV['destination']
+    scheme = ENV['SCHEME']
+
+    scan(scheme: scheme, device: device)
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    scheme = ENV['SCHEME']
+
+    build_app(scheme: scheme)
+    upload_to_testflight
+  end
+
+  desc "Bump Version"
+  lane :bump do
+    project_name = ENV['PROJECT_NAME']
+    xcodeproj = "#{project_name}.xcodeproj"
+    commit_tag = ENV['COMMIT_TAG']
+
+    build_number = increment_build_number(
+      xcodeproj: xcodeproj
+      )
+
+    commit_version_bump(
+      message: "[#{commit_tag}] Version increased to #{version_number}(#{build_number})",
+      xcodeproj: xcodeproj
+      )
+
+    push_to_git_remote(remote_branch: "develop")
+  end
+end

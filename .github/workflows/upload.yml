@@ -1,0 +1,26 @@
+name: Upload build    
+on:
+  push:
+    branches:
+    - master
+
+jobs: 
+  deploy:
+    name: Deploy
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Build and Upload
+        uses: maierj/fastlane-action@v1.4.0
+        with:
+          lane: 'beta'
+        env:
+          SCHEME: 'CalculatorByFr3qFly'
+      - name: Bump Build Number
+        uses: maierj/fastlane-action@v1.4.0
+        with:
+          lane: 'bump'
+        env: 
+          PROJECT_NAME: 'CalculatorByFr3qFly'
+          COMMIT_TAG: 'AUTO'
