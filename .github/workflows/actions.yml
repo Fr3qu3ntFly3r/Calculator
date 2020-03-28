@@ -12,7 +12,7 @@ jobs:
     runs-on: macOS-latest
     strategy:
       matrix: 
-        destination: ['platform=iOS Simulator,OS=12.1,name=iPhone SE', 'platform=iOS Simulator,OS=13.4,name=iPhone 11 Pro']
+        destination: ['Phone SE', 'iPhone 11 Pro']
         xcode: ['/Applications/Xcode_11.4.app/Contents/Developer']
     steps:
       - name: Checkout
@@ -26,4 +26,12 @@ jobs:
         uses: maierj/fastlane-action@v1.4.0
         with:
           lane: 'scan'
+          options: '{ "device": "${destination}" }'
+        env:
+          destination: $
+      - name: Uploading Failed Tests
+        uses: actions/upload-artifact@v1
+        with:
+          name: test_output
+          path: ./fastlane/test_output
       
