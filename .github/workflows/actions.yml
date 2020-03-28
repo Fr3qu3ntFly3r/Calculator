@@ -17,9 +17,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      - name: Build and test
-        run: bundle exec fastlane scan --destination "${destination}" --scheme "CalculatorByFr3qFly"
-        env:
-          destination: $
-          # DEVELOPER_DIR: ${{ matrix.xcode }}
+      # - name: Build and test
+      #   run: bundle exec fastlane scan --destination "${destination}" --scheme "CalculatorByFr3qFly"
+      #   env:
+      #     destination: $
+      #     # DEVELOPER_DIR: ${{ matrix.xcode }}
+      - name: Test
+        uses: maierj/fastlane-action@v1.4.0
+        with:
+          lane: 'scan'
       
