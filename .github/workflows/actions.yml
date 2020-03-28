@@ -1,0 +1,29 @@
+name: CI
+# triggered on pushes
+on:
+  push:
+    branches:
+    - develop
+
+jobs:
+  test:
+    name: Test
+    runs-on: macOS-latest
+    strategy:
+      matrix: 
+        destination: ['platform=iOS Simulator,OS=12.1,name=iPhone SE', 'platform=iOS Simulator,OS=13.4,name=iPhone 11 Pro']
+        xcode: ['/Applications/Xcode_11.4.app/Contents/Developer']
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: Build and test
+        run: bundle exec fastlane scan --destination "${destination}" --scheme "CalculatorByFr3qFly"
+        env:
+          destination: $
+          DEVELOPER_DIR: ${{ matrix.xcode }}
+      - name: Archive Failed Tests artifacts
+        if: failure()
+        uses: actions/upload-artifact@v1
+        with:
+          name: FailureDiff
+          path: CalcutaorTests/FailureDiffs

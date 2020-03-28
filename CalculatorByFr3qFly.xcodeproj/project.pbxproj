@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B1985F8242F2FC300816A9B /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B1985F7242F2FC300816A9B /* CalculatorTests.swift */; };
 		60027F8B1F186D9F00D82418 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60027F8A1F186D9F00D82418 /* ResultCell.swift */; };
 		60027F8D1F186EE700D82418 /* DisplayCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60027F8C1F186EE700D82418 /* DisplayCalculation.swift */; };
 		6035D39A1F0B0F6200AC8AB7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035D3991F0B0F6200AC8AB7 /* AppDelegate.swift */; };
@@ -17,7 +18,20 @@
 		6035D3AC1F0B1CD500AC8AB7 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6035D3AB1F0B1CD500AC8AB7 /* Calculator.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		1B1985FA242F2FC300816A9B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6035D38E1F0B0F6200AC8AB7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6035D3951F0B0F6200AC8AB7;
+			remoteInfo = CalculatorByFr3qFly;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1B1985F5242F2FC300816A9B /* CalculatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalculatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B1985F7242F2FC300816A9B /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		1B1985F9242F2FC300816A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60027F8A1F186D9F00D82418 /* ResultCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		60027F8C1F186EE700D82418 /* DisplayCalculation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCalculation.swift; sourceTree = "<group>"; };
 		6035D3961F0B0F6200AC8AB7 /* CalculatorByFr3qFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalculatorByFr3qFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +45,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1B1985F2242F2FC300816A9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6035D3931F0B0F6200AC8AB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,10 +62,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B1985F6242F2FC300816A9B /* CalculatorTests */ = {
+			isa = PBXGroup;
+			children = (
+				1B1985F7242F2FC300816A9B /* CalculatorTests.swift */,
+				1B1985F9242F2FC300816A9B /* Info.plist */,
+			);
+			path = CalculatorTests;
+			sourceTree = "<group>";
+		};
 		6035D38D1F0B0F6200AC8AB7 = {
 			isa = PBXGroup;
 			children = (
 				6035D3981F0B0F6200AC8AB7 /* Calculator */,
+				1B1985F6242F2FC300816A9B /* CalculatorTests */,
 				6035D3971F0B0F6200AC8AB7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				6035D3961F0B0F6200AC8AB7 /* CalculatorByFr3qFly.app */,
+				1B1985F5242F2FC300816A9B /* CalculatorTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -76,6 +108,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		1B1985F4242F2FC300816A9B /* CalculatorTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B1985FE242F2FC300816A9B /* Build configuration list for PBXNativeTarget "CalculatorTests" */;
+			buildPhases = (
+				1B1985F1242F2FC300816A9B /* Sources */,
+				1B1985F2242F2FC300816A9B /* Frameworks */,
+				1B1985F3242F2FC300816A9B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1B1985FB242F2FC300816A9B /* PBXTargetDependency */,
+			);
+			name = CalculatorTests;
+			productName = CalculatorTests;
+			productReference = 1B1985F5242F2FC300816A9B /* CalculatorTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		6035D3951F0B0F6200AC8AB7 /* CalculatorByFr3qFly */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6035D3A81F0B0F6200AC8AB7 /* Build configuration list for PBXNativeTarget "CalculatorByFr3qFly" */;
@@ -99,10 +149,15 @@
 		6035D38E1F0B0F6200AC8AB7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1140;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Szamódy Zs. Balázs";
 				TargetAttributes = {
+					1B1985F4242F2FC300816A9B = {
+						CreatedOnToolsVersion = 11.4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 6035D3951F0B0F6200AC8AB7;
+					};
 					6035D3951F0B0F6200AC8AB7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						LastSwiftMigration = 1020;
@@ -124,11 +179,19 @@
 			projectRoot = "";
 			targets = (
 				6035D3951F0B0F6200AC8AB7 /* CalculatorByFr3qFly */,
+				1B1985F4242F2FC300816A9B /* CalculatorTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		1B1985F3242F2FC300816A9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6035D3941F0B0F6200AC8AB7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -142,6 +205,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1B1985F1242F2FC300816A9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1B1985F8242F2FC300816A9B /* CalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6035D3921F0B0F6200AC8AB7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -155,6 +226,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1B1985FB242F2FC300816A9B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6035D3951F0B0F6200AC8AB7 /* CalculatorByFr3qFly */;
+			targetProxy = 1B1985FA242F2FC300816A9B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6035D39D1F0B0F6200AC8AB7 /* Main.storyboard */ = {
@@ -176,6 +255,49 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1B1985FC242F2FC300816A9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr3qfly.CalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalculatorByFr3qFly.app/CalculatorByFr3qFly";
+			};
+			name = Debug;
+		};
+		1B1985FD242F2FC300816A9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = CalculatorTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fr3qfly.CalculatorTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CalculatorByFr3qFly.app/CalculatorByFr3qFly";
+			};
+			name = Release;
+		};
 		6035D3A61F0B0F6200AC8AB7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -318,6 +440,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1B1985FE242F2FC300816A9B /* Build configuration list for PBXNativeTarget "CalculatorTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1B1985FC242F2FC300816A9B /* Debug */,
+				1B1985FD242F2FC300816A9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6035D3911F0B0F6200AC8AB7 /* Build configuration list for PBXProject "CalculatorByFr3qFly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
