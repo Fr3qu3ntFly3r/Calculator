@@ -16,9 +16,19 @@
 default_platform(:ios)
 
 platform :ios do
+  desc "Test the app"
+  lane :test_app do
+    device = ENV['destination']
+    scheme = ENV['SCHEME']
+
+    scan(scheme: scheme, device: device)
+  end
+
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    build_app(scheme: "CalculatorByFr3qFly")
+    scheme = ENV['SCHEME']
+
+    build_app(scheme: scheme)
     upload_to_testflight
   end
 end

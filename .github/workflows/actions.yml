@@ -17,20 +17,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v1
-      # - name: Build and test
-      #   run: bundle exec fastlane scan --destination "${destination}" --scheme "CalculatorByFr3qFly"
-      #   env:
-      #     destination: $
-      #     # DEVELOPER_DIR: ${{ matrix.xcode }}
       - name: Test
         uses: maierj/fastlane-action@v1.4.0
         with:
-          lane: 'scan'
-          options: '{ "device": "${destination}" }'
+          lane: 'test_app'
         env:
           destination: $
+          SCHEME: 'CalculatorByFr3qFly'
       - name: Uploading Failed Tests
         uses: actions/upload-artifact@v1
+        if: failure()
         with:
           name: test_output
           path: ./fastlane/test_output
